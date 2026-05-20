@@ -270,8 +270,8 @@
          onerror="this.style.display='none'"
          alt="UC Berkeley Event Services" />
     <div>
-      <h1>Linen Management Dashboard</h1>
-      <p>UC Berkeley Event Services</p>
+      <h1>Linen Inventory Dashboard</h1>
+      <p>Berkeley Event Services</p>
     </div>
   </div>
   <div>
@@ -294,34 +294,28 @@
   <div id="tab-overview">
     <div class="metrics">
       <div class="metric">
-        <div class="metric-label">total in stock</div>
+        <div class="metric-label">Total in Stock</div>
         <div class="metric-value" id="m-stock">—</div>
-        <div class="metric-sub">linens on hand</div>
+        <div class="metric-sub">Linens Available</div>
       </div>
       <div class="metric">
-        <div class="metric-label">needed this week</div>
+        <div class="metric-label">This Week</div>
         <div class="metric-value" id="m-needed">—</div>
-        <div class="metric-sub">across all events</div>
+        <div class="metric-sub">Linens required</div>
       </div>
       <div class="metric">
-        <div class="metric-label">to order</div>
+        <div class="metric-label">Upcoming Events</div>
         <div class="metric-value" id="m-order" style="color:var(--danger)">—</div>
-        <div class="metric-sub">net shortfall</div>
+        <div class="metric-sub">Additional Linens Needed</div>
       </div>
-      <div class="metric">
-        <div class="metric-label">events this week</div>
-        <div class="metric-value" id="m-events">—</div>
-        <div class="metric-sub">requiring linens</div>
-      </div>
-    </div>
 
     <div class="grid2">
       <div class="card">
-        <div class="card-title">Stock vs. need by type</div>
+        <div class="card-title">Stock vs. need by color </div>
         <div id="breakdown-list"></div>
       </div>
       <div class="card">
-        <div class="card-title">Quick status</div>
+        <div class="card-title">Event status</div>
         <div id="status-list"></div>
       </div>
     </div>
@@ -331,17 +325,17 @@
   <div id="tab-inventory" style="display:none">
     <div class="card" style="margin-bottom:1rem;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-        <div class="card-title" style="margin:0;">Current counts — pulled from form submissions</div>
+        <div class="card-title" style="margin:0;">Current Linen Counts</div>
         <button class="btn btn-sm" onclick="syncSheet()">↻ Refresh</button>
       </div>
       <div id="inv-loading" class="loading" style="display:none"><div class="spinner"></div> Fetching latest data…</div>
       <table>
-        <thead><tr><th>Linen type</th><th>Count on hand</th><th>Last submitted</th><th>Status</th></tr></thead>
+        <thead><tr><th>Linen Color</th><th>Count on hand</th><th>Last Updated</th><th>Status</th></tr></thead>
         <tbody id="inv-tbody"></tbody>
       </table>
       <hr>
       <p style="font-size:0.78rem;font-family:var(--mono);color:var(--muted);">
-        Counts are pulled from the most recent Google Form submission. Have shift leads submit the form after each inventory check.
+        Counts are updated with every linen inventory from submitted by the 11-3pm lead.
       </p>
     </div>
   </div>
@@ -351,10 +345,10 @@
     <div class="card" style="margin-bottom:1rem;">
       <div class="card-title">Add upcoming event</div>
       <div class="form-row">
-        <div><label>Event name</label><input type="text" id="ev-name" placeholder="e.g. Martinez Wedding Reception" /></div>
+        <div><label>Event name</label><input type="text" id="ev-name" placeholder="e.g. Bridges Study Jam" /></div>
         <div><label>Date</label><input type="date" id="ev-date" /></div>
       </div>
-      <p style="font-size:0.75rem;font-family:var(--mono);color:var(--muted);margin-bottom:8px;">Linens needed (from 7pointops event description):</p>
+      <p style="font-size:0.75rem;font-family:var(--mono);color:var(--muted);margin-bottom:8px;">Linens needed:</p>
       <div class="ev-linen-grid" id="ev-linen-grid"></div>
       <button class="btn btn-dark" onclick="addEvent()">+ Add event</button>
     </div>
@@ -377,7 +371,7 @@
       <hr style="border-color:#b2cdb8;">
       <div style="display:flex;gap:8px;flex-wrap:wrap;">
         <button class="btn btn-sm" onclick="copyOrder()">Copy for email</button>
-        <button class="btn btn-sm btn-dark" onclick="draftEmail()">Draft vendor email ↗</button>
+        <button class="btn btn-sm btn-dark" onclick="draftEmail()">Draft order email ↗</button>
       </div>
     </div>
 
