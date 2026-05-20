@@ -308,6 +308,7 @@
         <div class="metric-value" id="m-order" style="color:var(--danger)">—</div>
         <div class="metric-sub">Additional Linens Needed</div>
       </div>
+    </div>
 
     <div class="grid2">
       <div class="card">
@@ -522,7 +523,6 @@ function renderOverview() {
   document.getElementById('m-stock').textContent = totalStock;
   document.getElementById('m-needed').textContent = totalNeeded;
   document.getElementById('m-order').textContent = toOrder;
-  document.getElementById('m-events').textContent = evCount;
 
   // Breakdown bars
   const bl = document.getElementById('breakdown-list');
